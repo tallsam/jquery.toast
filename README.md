@@ -28,6 +28,7 @@ Options include toast duration, stickiness, and toast type.
 * **duration** - Length of time in milliseconds a non-sticky toast will be displayed. (default: 5000)
 * **sticky** - Determines if toast notification is sticky or not. (default: false)
 * **type** - Determines visual style for toast notification. Values can be any valid css class name (allowing you to define your own toast styles) or any of the following: blank, 'danger', 'info', 'success'. (default is blank)
+* **id** - A unique numeric id for the toast notification. Can be used to respond to a user closing a notification.
 
 
 ## Configuration

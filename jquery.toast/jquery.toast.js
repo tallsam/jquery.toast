@@ -6,7 +6,7 @@
 		typeof o.sticky === 'boolean' || (o.sticky = false);
 		typeof o.type === 'string' || (o.type = '');
 		// create host on first call
-		if(!th){ 
+		if(!th){
 			// get/fix config
 			cf = toast.config;
 			th = $('<ul></ul>').addClass('toast').appendTo(document.body).hide();
@@ -17,7 +17,12 @@
 			(cf.align === 'left' || cf.align === 'right') && th.css('margin','5px').css(cf.align, '0') || th.css({left: '50%', margin: '5px 0 0 -' + (cf.width / 2) + 'px'});
 		}
 		// create toast
-		var ti = $('<li></li>').hide().html(m).appendTo(th), cb = $('<button>&times;</button>').addClass('close').prependTo(ti), to = null;
+		var ti = $('<li></li>').hide().html(m).appendTo(th);
+		var cb = $('<button>&times;</button>').addClass('close');
+		var to = null;
+		o.id !== '' && cb.addClass('toastid-'+o.id);
+		cb.prependTo(ti);
+
 		// setup close button
 		cb.click(function(){
 			clearTimeout(to);
@@ -28,7 +33,8 @@
 		});
 		cf.closeForStickyOnly && !o.sticky && cb.hide();
 		// add type class
-		o.type !== '' && ti.addClass(o.type);
+                o.id !== '' && cb.addClass('toastid-'+o.id);
+		o.type !== '' && cb.addClass(o.type);
 		// show host if necessary
 		!th.hasClass('active') && th.addClass('active').show();
 		// setup timeout unless sticky

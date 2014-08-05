@@ -34,7 +34,7 @@
 		cf.closeForStickyOnly && !o.sticky && cb.hide();
 		// add type class
                 o.id !== '' && cb.addClass('toastid-'+o.id);
-		o.type !== '' && cb.addClass(o.type);
+		o.type !== '' && ti.addClass(o.type);
 		// show host if necessary
 		!th.hasClass('active') && th.addClass('active').show();
 		// setup timeout unless sticky
